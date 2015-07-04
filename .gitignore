@@ -3,3 +3,14 @@ settings.py
 *.json
 *~
 media/temp
+bin
+build
+include
+lib
+local
+man
+share
+Scripts
+.Python
+*.sqlite3
+.DS_Store
