@@ -14,3 +14,5 @@ Scripts
 .Python
 *.sqlite3
 .DS_Store
+~.jpg
+~.png
