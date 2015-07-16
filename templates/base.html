@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html>
 
     <head>
         <title>Jose Victor - Blog</title>
-        <link rel="stylesheet" type="text/css" href="{{ static('css/styles.css') }}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
     </head>
 
     <body>
@@ -37,6 +38,14 @@
                             <li><a href="#">Novembro 2013</a></li>
                             <li><a href="#">Outubro 2013</a></li>
                             <li><a href="#">Setembro 2013</a></li>
+                        </ul>
+                    </div>
+                    <div class="uk-panel">
+                        <h3 class="uk-panel-title">Tags</h3>
+                        <ul class="uk-list uk-list-line">
+                            {% block tags %}
+
+                            {% endblock %}
                         </ul>
                     </div>
                     <div class="uk-panel">

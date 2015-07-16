@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="uk-width-medium-3-4">
+
+    {% for post in posts %}
+        <article class="uk-article">
+            <h1 class="uk-article-title">{{ post.title|title }}</h1>
+            <p class="uk-article-meta">Escrito por {{ post.author }} em {{ post.pub_date }}</p>
+            <p><img width="900" height="300" src="{{ post.image.url }}"></p>
+            <h2>{{ post.subtitle }}</h2>
+            <p>{{ post.text|truncatechars:350 }}</p>
+
+            <p>
+                <a class="uk-button uk-button-primary" href="{% url 'view_post' post.slug %}">Continuar Leitura</a>
+                <a class="uk-button" href="layouts_post.html">4 Comentarios</a>
+            </p>
+        </article>
+    {% endfor %}
+
+    <ul class="uk-pagination">
+        {% for page in pages %}
+            {% if page == posts.number %}
+                <li class="uk-active"><span>{{ page }}</span></li>
+            {% else %}
+                {% if page == 0 %}
+                    <li><span>...</span></li>
+                {% else %}
+                    <li><a href="?page={{ page }}">{{ page }}</a></li>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+</div>
+{% endblock %}
+
+{% block tags %}
+    {% for tag in tags %}
+        <li><a href="{% url 'view_tag' tag.slug %}">{{ tag.tag }}</a></li>
+    {% endfor %}
+{% endblock %}
